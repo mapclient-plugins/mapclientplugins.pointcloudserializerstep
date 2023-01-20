@@ -1,52 +1,79 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'src/mapclientplugins/pointcloudserializerstep/widgets/qt/configuredialog.ui',
-# licensing of 'src/mapclientplugins/pointcloudserializerstep/widgets/qt/configuredialog.ui' applies.
-#
-# Created: Wed Jun 26 14:50:54 2019
-#      by: pyside2-uic  running on PySide2 5.11.2
-#
-# WARNING! All changes made in this file will be lost!
+################################################################################
+## Form generated from reading UI file 'configuredialog.ui'
+##
+## Created by: Qt User Interface Compiler version 6.4.1
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
 
-from PySide2 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
+    QGroupBox, QHBoxLayout, QLabel, QLineEdit,
+    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
+from  . import resources_rc
 
 class Ui_ConfigureDialog(object):
     def setupUi(self, ConfigureDialog):
-        ConfigureDialog.setObjectName("ConfigureDialog")
+        if not ConfigureDialog.objectName():
+            ConfigureDialog.setObjectName(u"ConfigureDialog")
         ConfigureDialog.resize(526, 216)
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(ConfigureDialog)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.groupBox = QtWidgets.QGroupBox(ConfigureDialog)
-        self.groupBox.setTitle("")
-        self.groupBox.setObjectName("groupBox")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.groupBox)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.label = QtWidgets.QLabel(self.groupBox)
-        self.label.setObjectName("label")
+        self.verticalLayout_2 = QVBoxLayout(ConfigureDialog)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.groupBox = QGroupBox(ConfigureDialog)
+        self.groupBox.setObjectName(u"groupBox")
+        self.verticalLayout = QVBoxLayout(self.groupBox)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.label = QLabel(self.groupBox)
+        self.label.setObjectName(u"label")
+
         self.horizontalLayout.addWidget(self.label)
-        self.identifierLineEdit = QtWidgets.QLineEdit(self.groupBox)
-        self.identifierLineEdit.setObjectName("identifierLineEdit")
+
+        self.identifierLineEdit = QLineEdit(self.groupBox)
+        self.identifierLineEdit.setObjectName(u"identifierLineEdit")
+
         self.horizontalLayout.addWidget(self.identifierLineEdit)
+
+
         self.verticalLayout.addLayout(self.horizontalLayout)
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout.addItem(spacerItem)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer)
+
+
         self.verticalLayout_2.addWidget(self.groupBox)
-        self.buttonBox = QtWidgets.QDialogButtonBox(ConfigureDialog)
-        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
-        self.buttonBox.setObjectName("buttonBox")
+
+        self.buttonBox = QDialogButtonBox(ConfigureDialog)
+        self.buttonBox.setObjectName(u"buttonBox")
+        self.buttonBox.setOrientation(Qt.Horizontal)
+        self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
+
         self.verticalLayout_2.addWidget(self.buttonBox)
+
+#if QT_CONFIG(shortcut)
         self.label.setBuddy(self.identifierLineEdit)
+#endif // QT_CONFIG(shortcut)
 
         self.retranslateUi(ConfigureDialog)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("accepted()"), ConfigureDialog.accept)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("rejected()"), ConfigureDialog.reject)
-        QtCore.QMetaObject.connectSlotsByName(ConfigureDialog)
+        self.buttonBox.accepted.connect(ConfigureDialog.accept)
+        self.buttonBox.rejected.connect(ConfigureDialog.reject)
+
+        QMetaObject.connectSlotsByName(ConfigureDialog)
+    # setupUi
 
     def retranslateUi(self, ConfigureDialog):
-        ConfigureDialog.setWindowTitle(QtWidgets.QApplication.translate("ConfigureDialog", "Configure - Point Cloud Store", None, -1))
-        self.label.setText(QtWidgets.QApplication.translate("ConfigureDialog", "Identifier:", None, -1))
+        ConfigureDialog.setWindowTitle(QCoreApplication.translate("ConfigureDialog", u"Configure - Point Cloud Store", None))
+        self.groupBox.setTitle("")
+        self.label.setText(QCoreApplication.translate("ConfigureDialog", u"Identifier:", None))
+    # retranslateUi
 
-from . import resources_rc
