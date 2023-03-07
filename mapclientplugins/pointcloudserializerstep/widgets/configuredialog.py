@@ -68,7 +68,7 @@ class ConfigureDialog(QDialog):
         self._ui.identifierLineEdit.textChanged.connect(self.validate)
 
     def setState(self, state):
-        self._ui.identifierLineEdit.setText(state._identifier)
+        self._ui.identifierLineEdit.setText(state.identifier())
 
     def getState(self):
         state = ConfigureDialogState(
@@ -79,7 +79,7 @@ class ConfigureDialog(QDialog):
     def validate(self):
         identifier_valid = len(self._ui.identifierLineEdit.text()) > 0
 
-        self._ui.buttonBox.button(QDialogButtonBox.Ok).setEnabled(identifier_valid)
+        self._ui.buttonBox.button(QDialogButtonBox.StandardButton.Ok).setEnabled(identifier_valid)
 
         if identifier_valid:
             self._ui.identifierLineEdit.setStyleSheet(DEFAULT_STYLE_SHEET)
@@ -87,4 +87,3 @@ class ConfigureDialog(QDialog):
             self._ui.identifierLineEdit.setStyleSheet(REQUIRED_STYLE_SHEET)
 
         return identifier_valid
-

@@ -39,6 +39,7 @@ class PointCloudSerializerStep(WorkflowStepMountPoint):
     """
     def __init__(self, location):
         super(PointCloudSerializerStep, self).__init__('Point Cloud Serializer', location)
+        self._configured = False  # A step cannot be executed until it has been configured.
 #        self._name = 'Point Cloud Store'
 #        self._location = location
         self._icon = QtGui.QImage(':/pointcloudserializer/images/pointcloudserializer.png')
@@ -50,13 +51,13 @@ class PointCloudSerializerStep(WorkflowStepMountPoint):
         self._dataIn = None
 
     def configure(self):
-        d = ConfigureDialog(self._state, QtWidgets.QApplication.activeWindow().current_widget())
+        d = ConfigureDialog(self._state, self._main_window)
         d.setModal(True)
         if d.exec_():
             self._state = d.getState()
 
         self._configured = d.validate()
-        if self._configured and self._configuredObserver != None:
+        if self._configured and self._configuredObserver is not None:
             self._configuredObserver()
 
     def getIdentifier(self):
@@ -88,4 +89,3 @@ class PointCloudSerializerStep(WorkflowStepMountPoint):
                 for i, pt in enumerate(self._dataIn):
                     f.write(str(i + 1) + '\t' + str(pt[0]) + '\t' + str(pt[1]) + '\t' + str(pt[2]) + '\n')
         self._doneExecution()
-
